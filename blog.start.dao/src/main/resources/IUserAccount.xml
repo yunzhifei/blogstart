@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maoyan.oa.medusa.dao.impl.ArrangePreSaleDetailDao">
+    <resultMap type="com.maoyan.oa.medusa.dao.dto.ArrangePreSaleDetailDO" id="baseResultMap">
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="selectSql">
+        SELECT
+        id AS id,
+      name as name
+        FROM arrange_presale_detail
+    </sql>
+    <select id="selectById" parameterType="int" resultType="com.bj.hai.yang.blog.start.dto.UserAccountDO">
+        <include refid="selectSql"/>
+        where id=#{id}
+    </select>
+</mapper>

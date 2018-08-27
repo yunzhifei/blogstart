@@ -1,0 +1,8 @@
+package com.bj.hai.yang.blog.start.service;
+
+
+import com.bj.hai.yang.blog.start.model.UserAccountModel;
+
+public interface IUserAccountService {
+    UserAccountModel selectById(int id);
+}

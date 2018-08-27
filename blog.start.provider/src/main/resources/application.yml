@@ -1,0 +1,7 @@
+server:
+  port: 8990
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: a19940129
