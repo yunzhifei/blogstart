@@ -137,6 +137,7 @@
         <module>blog.start.service</module>
         <module>blog.start.provider</module>
         <module>blog.start.domain</module>
+        <module>blog.start.task</module>
     </modules>
 
     <build>
