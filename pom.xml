@@ -17,6 +17,7 @@
         <spring.context.version>5.0.7.RELEASE</spring.context.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <commons-lang3.version>3.8</commons-lang3.version>
+        <dubbo.version>2.6.3</dubbo.version>
     </properties>
 
 
@@ -113,6 +114,12 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
 
 
