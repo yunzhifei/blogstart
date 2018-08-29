@@ -24,11 +24,11 @@
     </settings>
     <!-- 扫描相应的DTO-->
     <typeAliases>
-        <package name="com.bj.hai.yang.blog.start.dto"></package>
+        <package name="com.bj.hai.yang.blog.start.dao"></package>
     </typeAliases>
 
     <mappers>
-        <mapper resource="IUserAccount.xml"/>
+        <mapper resource="classpath:IUserAccount.xml"/>
     </mappers>
 
 </configuration>
