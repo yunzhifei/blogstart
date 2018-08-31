@@ -1,5 +1,5 @@
 server:
-  port: 8991
+  port: 8992
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
