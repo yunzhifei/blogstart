@@ -4,6 +4,7 @@ import com.bj.hai.yang.blog.start.model.UserAccountModel;
 import com.bj.hai.yang.blog.start.service.IUserAccountService;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +18,10 @@ public class TestController {
     private IUserAccountService userAccountService;
 
     private ExecutorService executorService = Executors.newCachedThreadPool();
-    ;
+
 
     @RequestMapping("/")
+    @CrossOrigin(origins = "*")
     public String test() {
         UserAccountModel userAccountModel = userAccountService.selectById(1);
         System.out.println("userAccountModel = " + userAccountModel);

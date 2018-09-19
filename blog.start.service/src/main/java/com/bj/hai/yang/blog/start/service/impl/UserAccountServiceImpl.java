@@ -17,7 +17,7 @@ public class UserAccountServiceImpl implements IUserAccountService {
     private IUserAccountDao userAccountDao;
 
     public UserAccountModel selectById(int id) {
-        UserAccountModel userAccountModel = UserAccountModel.builder().id(1).name("s").build();
+        UserAccountModel userAccountModel = UserAccountModel.builder().build();
         UserAccountDO userAccountDO = userAccountDao.selectById(1);
         if (null == userAccountDO) {
             return null;
