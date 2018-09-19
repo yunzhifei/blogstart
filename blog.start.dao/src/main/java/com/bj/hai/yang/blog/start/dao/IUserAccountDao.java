@@ -4,7 +4,6 @@ package com.bj.hai.yang.blog.start.dao;
 import com.bj.hai.yang.blog.start.dto.UserAccountDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface IUserAccountDao {
