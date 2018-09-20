@@ -18,7 +18,6 @@
             <groupId>com.bj.hai.yang</groupId>
             <artifactId>blog.start.dao</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

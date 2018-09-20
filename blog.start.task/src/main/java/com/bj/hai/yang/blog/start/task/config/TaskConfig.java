@@ -1,4 +1,4 @@
-package com.bj.hai.yang.start.task.config;
+package com.bj.hai.yang.blog.start.task.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
