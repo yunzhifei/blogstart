@@ -17,7 +17,6 @@ public class UserAccountServiceImpl implements IUserAccountService {
     private IUserAccountDao userAccountDao;
 
     public UserAccountModel selectById(int id) {
-        UserAccountModel userAccountModel = UserAccountModel.builder().build();
         UserAccountDO userAccountDO = userAccountDao.selectById(1);
         if (null == userAccountDO) {
             return null;
@@ -36,6 +35,12 @@ public class UserAccountServiceImpl implements IUserAccountService {
 
     @Override
     public String login(String userName, String pwd) {
-        return null;
+        UserAccountModel userAccountModel = selectByName(userName);
+        if (pwd.equals(userAccountModel.getPwd())) {
+            return "";
+        } else {
+            return "账户密码不匹配";
+        }
+
     }
 }
