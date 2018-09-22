@@ -8,6 +8,11 @@ public class UserAccountModelConvert {
         UserAccountModel userAccountModel = new UserAccountModel();
         userAccountModel.setId(userAccountDO.getId());
         userAccountModel.setName(userAccountDO.getName());
+        userAccountModel.setPwd(userAccountDO.getPwd());
+        userAccountModel.setSalt(userAccountDO.getSalt());
+        userAccountModel.setStatus(userAccountDO.getStatus());
+        userAccountModel.setModified(userAccountDO.getModified());
+        userAccountModel.setCreated(userAccountDO.getCreated());
         return userAccountModel;
     }
 }

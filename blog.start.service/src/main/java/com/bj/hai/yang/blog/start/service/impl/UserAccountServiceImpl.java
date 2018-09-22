@@ -24,4 +24,18 @@ public class UserAccountServiceImpl implements IUserAccountService {
         }
         return UserAccountModelConvert.convertToModel(userAccountDO);
     }
+
+    @Override
+    public UserAccountModel selectByName(String name) {
+        UserAccountDO userAccountDO = userAccountDao.selectByName(name);
+        if (null == userAccountDO) {
+            return null;
+        }
+        return UserAccountModelConvert.convertToModel(userAccountDO);
+    }
+
+    @Override
+    public String login(String userName, String pwd) {
+        return null;
+    }
 }

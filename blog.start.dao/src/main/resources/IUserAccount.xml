@@ -4,10 +4,30 @@
 
     <!--auto generated Code-->
     <resultMap id="AllColumnMap" type="com.bj.hai.yang.blog.start.dto.UserAccountDO">
-        <result column="id" property="id"/>
-        <result column="name" property="name"/>
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="pwd" jdbcType="VARCHAR" property="pwd"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="modified" jdbcType="TIMESTAMP" property="modified"/>
     </resultMap>
+    <sql id="select">
+        select
+        id,
+        name,
+        pwd,
+        salt,
+        status,
+        created,
+        modified
+        from user_account
+    </sql>
     <select id="selectById" parameterType="int" resultMap="AllColumnMap">
-        select * from user_account where id=#{id}
+        <include refid="select"/>
+        where id=#{id} and status=0
+    </select>
+    <select id="selectByName" parameterType="java.lang.String" resultMap="AllColumnMap">
+        <include refid="select"/> where name=#{name} and status=0
     </select>
 </mapper>

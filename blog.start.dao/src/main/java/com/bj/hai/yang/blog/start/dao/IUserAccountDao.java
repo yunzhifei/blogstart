@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface IUserAccountDao {
-//    @Select({"select * from user_account where id=#{id}"})
     UserAccountDO selectById(@Param("id") int id);
+
+    UserAccountDO selectByName(@Param("name") String name);
 }

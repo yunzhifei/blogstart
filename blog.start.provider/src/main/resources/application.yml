@@ -5,3 +5,6 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
     username: root
     password: a19940129
+  thymeleaf:
+    mode: HTML5
+    cache: false
