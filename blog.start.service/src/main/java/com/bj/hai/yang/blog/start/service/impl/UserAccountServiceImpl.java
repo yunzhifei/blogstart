@@ -37,7 +37,7 @@ public class UserAccountServiceImpl implements IUserAccountService {
     @Override
     public String login(String userName, String pwd) {
         UserAccountModel userAccountModel = selectByName(userName);
-        if (pwd.equals(MD5Utils.encryption(userAccountModel.getPwd() + userAccountModel.getSalt()))) {
+        if (null != userAccountModel && pwd.equals(MD5Utils.encryption(userAccountModel.getPwd() + userAccountModel.getSalt()))) {
             return "";
         } else {
             return "账户密码不匹配";

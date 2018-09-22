@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class ApiResponse<T> {
     private T data;
     private boolean success;

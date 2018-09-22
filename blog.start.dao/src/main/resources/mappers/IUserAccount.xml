@@ -23,10 +23,14 @@
         modified
         from user_account
     </sql>
-    <select id="selectById" parameterType="int" resultMap="AllColumnMap">
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="AllColumnMap">
         <include refid="select"/>
         where id=#{id} and status=0
     </select>
+
+
+
+
     <select id="selectByName" parameterType="java.lang.String" resultMap="AllColumnMap">
         <include refid="select"/> where name=#{name} and status=0
     </select>
