@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class HomeController {
 
     @Autowired
@@ -26,7 +27,7 @@ public class HomeController {
 
 
     @RequestMapping("/")
-    @CrossOrigin(origins = "*")
+
     public String test() {
         UserAccountModel userAccountModel = userAccountService.selectById(1);
         System.out.println("userAccountModel = " + userAccountModel);
