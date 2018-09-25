@@ -18,6 +18,10 @@
             <groupId>com.bj.hai.yang</groupId>
             <artifactId>blog.start.dao</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bj.hai.yang</groupId>
+            <artifactId>blog.start.common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

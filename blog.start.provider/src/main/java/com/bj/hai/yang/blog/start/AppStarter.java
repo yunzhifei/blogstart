@@ -9,7 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @ImportResource(locations = "classpath:mybatis-config.xml")
 @EnableScheduling
-public class AppStarter {
+public class
+AppStarter {
     public static void main(String[] args) {
         SpringApplication.run(AppStarter.class, args);
     }
