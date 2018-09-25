@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootUnitTest {
@@ -17,7 +19,8 @@ public class SpringBootUnitTest {
 
     @org.junit.Test
     public void test() {
-        UserAccountModel userAccountModel = userAccountService.selectById(1);
-        System.out.println("userAccountModel = " + userAccountModel);
+        UserAccountModel userAccountModel = UserAccountModel.builder().name("test").created(new Date()).modified(new Date()).pwd("test").salt("salt").status(1).build();
+        int insert = userAccountService.insert(userAccountModel);
+        System.out.println("insert = " + insert);
     }
 }

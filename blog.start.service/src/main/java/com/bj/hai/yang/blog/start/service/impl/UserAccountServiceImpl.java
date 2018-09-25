@@ -44,4 +44,12 @@ public class UserAccountServiceImpl implements IUserAccountService {
         }
 
     }
+
+    @Override
+    public int insert(UserAccountModel userAccountModel) {
+//        return userAccountDao;
+        UserAccountDO userAccountDO = UserAccountModelConvert.convertToDO(userAccountModel);
+        int insert = userAccountDao.insert(userAccountDO);
+        return userAccountDO.getId();
+    }
 }

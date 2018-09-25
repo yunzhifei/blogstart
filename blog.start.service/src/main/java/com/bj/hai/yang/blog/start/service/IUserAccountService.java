@@ -9,4 +9,6 @@ public interface IUserAccountService {
     UserAccountModel selectByName(String name);
 
     String login(String userName, String pwd);
+
+    int insert(UserAccountModel userAccountModel);
 }

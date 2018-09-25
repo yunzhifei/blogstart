@@ -23,15 +23,72 @@
         modified
         from user_account
     </sql>
+
+    <sql id="insertColumn">
+        <trim prefix="" suffixOverrides=",">
+            id,
+            <if test="name != null">
+                name,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+            <if test="salt != null">
+                salt,
+            </if>
+            <if test="created != null">
+                created,
+            </if>
+            <if test="modified != null">
+                modified,
+            </if>
+            <if test="status != null">
+                status
+            </if>
+        </trim>
+    </sql>
+    <sql id="insertValue">
+        <trim prefix="" suffixOverrides=",">
+            #{id},
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="pwd != null">
+                #{pwd},
+            </if>
+            <if test="salt != null">
+                #{salt},
+            </if>
+            <if test="created != null">
+                #{created},
+            </if>
+            <if test="modified != null">
+                #{modified},
+            </if>
+            <if test="status != null">
+                #{status}
+            </if>
+        </trim>
+    </sql>
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into user_account
+        (
+        <include refid="insertColumn"/>
+        ) values (
+        <include refid="insertValue"/>
+        )
+
+    </insert>
+
     <select id="selectById" parameterType="java.lang.Integer" resultMap="AllColumnMap">
         <include refid="select"/>
         where id=#{id} and status=0
     </select>
 
 
-
-
     <select id="selectByName" parameterType="java.lang.String" resultMap="AllColumnMap">
-        <include refid="select"/> where name=#{name} and status=0
+        <include refid="select"/>
+        where name=#{name} and status=0
     </select>
+
 </mapper>

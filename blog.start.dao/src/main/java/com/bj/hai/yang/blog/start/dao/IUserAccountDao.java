@@ -10,4 +10,6 @@ public interface IUserAccountDao {
     UserAccountDO selectById(@Param("id") int id);
 
     UserAccountDO selectByName(@Param("name") String name);
+
+    int insert(UserAccountDO userAccountDO);
 }
