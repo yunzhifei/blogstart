@@ -1,5 +1,7 @@
 package com.bj.hai.yang.blog.start.controller;
 
+import com.bj.hai.yang.blog.start.common.utils.MD5Utils;
+import com.bj.hai.yang.blog.start.common.utils.SaltUtils;
 import com.bj.hai.yang.blog.start.model.UserAccountModel;
 import com.bj.hai.yang.blog.start.service.IUserAccountService;
 import com.bj.hai.yang.blog.start.vo.common.ApiResponse;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -48,6 +51,28 @@ public class HomeController {
         return ApiResponse.builder().success(true).message(login).build();
     }
 
+    @RequestMapping("/register")
+    @ResponseBody
+    public ApiResponse register(LoginReq loginReq) {
+        if (StringUtils.isNotEmpty(checkLoginParams(loginReq))) {
+            return ApiResponse.builder().success(false).message(checkLoginParams(loginReq)).build();
+        }
+        String salt = SaltUtils.getSalt();
+        UserAccountModel userAccountModel = UserAccountModel.builder()
+                .name(loginReq.getName())
+                .pwd(MD5Utils.encryption(loginReq.getPwd() + salt))
+                .status(0)
+                .created(new Date())
+                .modified(new Date())
+                .salt(salt)
+                .build();
+        int insert = userAccountService.insert(userAccountModel);
+        if (0 == insert) {
+            return ApiResponse.builder().success(false).message("注册失败！").build();
+        }
+        return ApiResponse.builder().success(true).message("注册成功！").build();
+    }
+
     private String checkLoginParams(LoginReq loginReq) {
         if (StringUtils.isEmpty(loginReq.getName())) {
             return "用户名不能为空";
@@ -57,4 +82,6 @@ public class HomeController {
         }
         return "";
     }
+
+
 }
