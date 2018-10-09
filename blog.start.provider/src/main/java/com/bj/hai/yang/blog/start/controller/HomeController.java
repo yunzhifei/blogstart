@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,11 +32,11 @@ public class HomeController {
 
 
     @RequestMapping("/")
-
-    public String test() {
-        UserAccountModel userAccountModel = userAccountService.selectById(1);
-        System.out.println("userAccountModel = " + userAccountModel);
-        return "index.html";
+    public String test(int i) {
+        throw new NullPointerException();
+//        UserAccountModel userAccountModel = userAccountService.selectById(1);
+//        System.out.println("userAccountModel = " + userAccountModel);
+//        return "index.html";
     }
 
     @RequestMapping("/login")
@@ -83,5 +84,9 @@ public class HomeController {
         return "";
     }
 
+    public static void main(String[] args) {
+        Integer i = 1;
+        System.out.println("args = " + (i instanceof Object));
+    }
 
 }
