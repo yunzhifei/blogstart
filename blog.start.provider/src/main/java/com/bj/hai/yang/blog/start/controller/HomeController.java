@@ -1,5 +1,6 @@
 package com.bj.hai.yang.blog.start.controller;
 
+import com.bj.hai.yang.blog.start.common.utils.CommonConstant;
 import com.bj.hai.yang.blog.start.common.utils.MD5Utils;
 import com.bj.hai.yang.blog.start.common.utils.SaltUtils;
 import com.bj.hai.yang.blog.start.model.UserAccountModel;
@@ -37,6 +38,8 @@ public class HomeController {
 //        UserAccountModel userAccountModel = userAccountService.selectById(1);
 //        System.out.println("userAccountModel = " + userAccountModel);
 //        return "index.html";
+
+
     }
 
     @RequestMapping("/login")
@@ -61,7 +64,7 @@ public class HomeController {
         String salt = SaltUtils.getSalt();
         UserAccountModel userAccountModel = UserAccountModel.builder()
                 .name(loginReq.getName())
-                .pwd(MD5Utils.encryption(loginReq.getPwd() + salt))
+                .pwd(MD5Utils.MD5Encode(loginReq.getPwd() + salt, CommonConstant.UTF_8))
                 .status(0)
                 .created(new Date())
                 .modified(new Date())
