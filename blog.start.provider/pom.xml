@@ -18,6 +18,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.bj.hai.yang</groupId>
             <artifactId>blog.start.service</artifactId>
         </dependency>

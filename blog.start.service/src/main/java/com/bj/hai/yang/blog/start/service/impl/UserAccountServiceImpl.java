@@ -1,6 +1,7 @@
 package com.bj.hai.yang.blog.start.service.impl;
 
 
+import com.bj.hai.yang.blog.start.common.utils.CommonConstant;
 import com.bj.hai.yang.blog.start.common.utils.MD5Utils;
 import com.bj.hai.yang.blog.start.convert.UserAccountModelConvert;
 import com.bj.hai.yang.blog.start.dao.IUserAccountDao;
@@ -37,7 +38,7 @@ public class UserAccountServiceImpl implements IUserAccountService {
     @Override
     public String login(String userName, String pwd) {
         UserAccountModel userAccountModel = selectByName(userName);
-        if (null != userAccountModel && pwd.equals(MD5Utils.encryption(userAccountModel.getPwd() + userAccountModel.getSalt()))) {
+        if (null != userAccountModel && pwd.equals(MD5Utils.MD5Encode(userAccountModel.getPwd() + userAccountModel.getSalt(), CommonConstant.UTF_8))) {
             return "";
         } else {
             return "账户密码不匹配";
