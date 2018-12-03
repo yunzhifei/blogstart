@@ -4,6 +4,7 @@ import com.bj.hai.yang.blog.start.common.utils.CommonConstant;
 import com.bj.hai.yang.blog.start.common.utils.MD5Utils;
 import com.bj.hai.yang.blog.start.common.utils.SaltUtils;
 import com.bj.hai.yang.blog.start.model.UserAccountModel;
+import com.bj.hai.yang.blog.start.service.HolidayService;
 import com.bj.hai.yang.blog.start.service.IUserAccountService;
 import com.bj.hai.yang.blog.start.vo.common.ApiResponse;
 import com.bj.hai.yang.blog.start.vo.common.login.LoginReq;
@@ -25,6 +26,9 @@ public class HomeController {
     @Autowired
     private IUserAccountService userAccountService;
 
+    @Autowired
+    private HolidayService holidayService;
+
     private ExecutorService executorService = Executors.newCachedThreadPool();
 
 
@@ -32,6 +36,7 @@ public class HomeController {
     public String test(int i) {
         UserAccountModel userAccountModel = userAccountService.selectById(1);
         System.out.println("userAccountModel = " + userAccountModel);
+        holidayService.selectByMonth();
         return "test";
 
 
@@ -56,6 +61,8 @@ public class HomeController {
         if (StringUtils.isNotEmpty(checkLoginParams(loginReq))) {
             return ApiResponse.builder().success(false).message(checkLoginParams(loginReq)).build();
         }
+
+
         String salt = SaltUtils.getSalt();
         UserAccountModel userAccountModel = UserAccountModel.builder()
                 .name(loginReq.getName())

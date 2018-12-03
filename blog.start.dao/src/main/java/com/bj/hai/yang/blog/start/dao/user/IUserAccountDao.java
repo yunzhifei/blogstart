@@ -1,4 +1,4 @@
-package com.bj.hai.yang.blog.start.dao;
+package com.bj.hai.yang.blog.start.dao.user;
 
 
 import com.bj.hai.yang.blog.start.dto.UserAccountDO;

@@ -4,7 +4,7 @@ package com.bj.hai.yang.blog.start.service.impl;
 import com.bj.hai.yang.blog.start.common.utils.CommonConstant;
 import com.bj.hai.yang.blog.start.common.utils.MD5Utils;
 import com.bj.hai.yang.blog.start.convert.UserAccountModelConvert;
-import com.bj.hai.yang.blog.start.dao.IUserAccountDao;
+import com.bj.hai.yang.blog.start.dao.user.IUserAccountDao;
 import com.bj.hai.yang.blog.start.dto.UserAccountDO;
 import com.bj.hai.yang.blog.start.model.UserAccountModel;
 import com.bj.hai.yang.blog.start.service.IUserAccountService;

@@ -14,6 +14,12 @@
 
     <packaging>jar</packaging>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.bj.hai.yang</groupId>
             <artifactId>blog.start.domain</artifactId>

@@ -24,11 +24,11 @@
     </settings>
     <!-- 扫描相应的DTO-->
     <typeAliases>
-        <package name="com.bj.hai.yang.blog.start.dao.user"></package>
+        <package name="com.bj.hai.yang.blog.start.dao.test"></package>
     </typeAliases>
 
     <mappers>
-        <mapper resource="mappers/IUserAccount.xml"/>
+        <mapper resource="HolidayDao.xml"/>
     </mappers>
 
 </configuration>
