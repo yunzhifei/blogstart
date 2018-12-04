@@ -44,7 +44,8 @@ public class MyTestDataSource {
     @Bean(name = "testTransactionManager")
     @Primary
     public DataSourceTransactionManager setTransactionManager(@Qualifier("dataSourceTest") DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource);
+        return dataSourceTransactionManager;
     }
 
 
