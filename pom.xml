@@ -49,7 +49,24 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-starter-logging</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                    </exclusion>
                 </exclusions>
+            </dependency>
+
+            <!-- jsp支持开启 -->
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+                <version>9.0.16</version>
+            </dependency>
+            <!-- servlet支持开启 -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.0</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -183,11 +200,6 @@
         <finalName>webBlog</finalName>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.5.7.RELEASE</version>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-archetype-plugin</artifactId>
                 <version>3.0.0</version>
@@ -207,7 +219,7 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.8.2</version>
                 <configuration>
-                    <!--<skip>true</skip>-->
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
