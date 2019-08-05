@@ -22,16 +22,10 @@ public class ModelAttributeController {
         if (null != cookies) {
             Arrays.stream(cookies).forEach(element -> {
                 if (element.getName().equals("token")) {
-                    //校验cookie,同时返回用户model
                 }
             });
         }
         return null;
     }
 
-//    @ExceptionHandler(value = Exception.class)
-//    public String exceptionHandler(Exception e) {
-//        logger.error("系统异常！", e);
-//        return "index.html";
-//    }
 }

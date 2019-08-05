@@ -4,16 +4,17 @@
 
     <!--auto generated Code-->
     <resultMap id="AllColumnMap" type="com.bj.hai.yang.blog.start.dto.UserAccountDO">
-        <result column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="pwd" jdbcType="VARCHAR" property="pwd"/>
-        <result column="salt" jdbcType="VARCHAR" property="salt"/>
-        <result column="status" jdbcType="TINYINT" property="status"/>
-        <result column="created" jdbcType="TIMESTAMP" property="created"/>
-        <result column="modified" jdbcType="TIMESTAMP" property="modified"/>
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>
+        <result column="salt" property="salt"/>
+        <result column="status" property="status"/>
+        <result column="created" property="created"/>
+        <result column="modified" property="modified"/>
     </resultMap>
-    <sql id="select">
-        select
+
+    <!--auto generated Code-->
+    <sql id="all_column">
         id,
         name,
         pwd,
@@ -21,17 +22,101 @@
         status,
         created,
         modified
-        from user_account
     </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO user_account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.name != null">name,</if>
+            <if test="pojo.pwd != null">pwd,</if>
+            <if test="pojo.salt != null">salt,</if>
+            <if test="pojo.status != null">status,</if>
+            <if test="pojo.created != null">created,</if>
+            <if test="pojo.modified != null">modified,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.name != null">#{pojo.name},</if>
+            <if test="pojo.pwd != null">#{pojo.pwd},</if>
+            <if test="pojo.salt != null">#{pojo.salt},</if>
+            <if test="pojo.status != null">#{pojo.status},</if>
+            <if test="pojo.created != null">#{pojo.created},</if>
+            <if test="pojo.modified != null">#{pojo.modified},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user_account(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.name},
+            #{pojo.pwd},
+            #{pojo.salt},
+            #{pojo.status},
+            #{pojo.created},
+            #{pojo.modified}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user_account
+        <set>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.name != null">name = #{pojo.name},</if>
+            <if test="pojo.pwd != null">pwd = #{pojo.pwd},</if>
+            <if test="pojo.salt != null">salt = #{pojo.salt},</if>
+            <if test="pojo.status != null">status = #{pojo.status},</if>
+            <if test="pojo.created != null">created = #{pojo.created},</if>
+            <if test="pojo.modified != null">modified = #{pojo.modified}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT
+        <include refid="all_column"/>
+        FROM user_account
+        <where>
+            <if test="pojo.id != null">AND id = #{pojo.id}</if>
+            <if test="pojo.name != null">AND name = #{pojo.name}</if>
+            <if test="pojo.pwd != null">AND pwd = #{pojo.pwd}</if>
+            <if test="pojo.salt != null">AND salt = #{pojo.salt}</if>
+            <if test="pojo.status != null">AND status = #{pojo.status}</if>
+            <if test="pojo.created != null">AND created = #{pojo.created}</if>
+            <if test="pojo.modified != null">AND modified = #{pojo.modified}</if>
+        </where>
+        LIMIT 1000
+    </select>
+
+    <!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM user_account where id = #{id}
+    </delete>
     <select id="selectById" parameterType="java.lang.Integer" resultMap="AllColumnMap">
-        <include refid="select"/>
-        where id=#{id} and status=0
+        SELECT
+        <include refid="all_column"/>
+        FROM
+        user_account
+        where
+        id=#{id} and status=0
     </select>
 
 
-
-
     <select id="selectByName" parameterType="java.lang.String" resultMap="AllColumnMap">
-        <include refid="select"/> where name=#{name} and status=0
+        SELECT
+        <include refid="all_column"/>
+        FROM
+        WHERE
+        name=#{name} AND status=0
     </select>
 </mapper>
