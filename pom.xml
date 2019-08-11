@@ -17,7 +17,6 @@
         <spring.context.version>5.0.7.RELEASE</spring.context.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <commons-lang3.version>3.8</commons-lang3.version>
-        <dubbo.version>2.6.3</dubbo.version>
     </properties>
 
 
@@ -80,10 +79,6 @@
             </dependency>
             <!-- web end -->
             <!-- 引入log4j2依赖 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-log4j2</artifactId>
-            </dependency>
 
             <!-- mysql and mybatis -->
             <dependency>
@@ -147,11 +142,12 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
+
+            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo -->
             <dependency>
-                <groupId>com.alibaba</groupId>
+                <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>${dubbo.version}</version>
+                <version>2.7.3</version>
             </dependency>
 
 

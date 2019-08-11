@@ -10,4 +10,6 @@ CREATE TABLE user_account
     `created`  DATETIME             NOT NULL DEFAULT current_timestamp,
     `modified` DATETIME             NOT NULL DEFAULT current_timestamp COMMENT 'modified' ON UPDATE current_timestamp,
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT 'user_account';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'user_account';
+
+

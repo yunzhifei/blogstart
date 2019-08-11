@@ -7,6 +7,9 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author yunzhifei
+ */
 @Mapper
 public interface IUserAccountDao {
 

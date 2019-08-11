@@ -13,28 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Controller
-@CrossOrigin(origins = "*")
 public class HomeController {
 
-    @Autowired
+    @Resource
     private IUserAccountService userAccountService;
 
-    private ExecutorService executorService = Executors.newCachedThreadPool();
-
-
-    @RequestMapping("/")
-
+    @RequestMapping(value = "/")
     public String test() {
         UserAccountModel userAccountModel = userAccountService.selectById(1);
         System.out.println("userAccountModel = " + userAccountModel);
         return "index.html";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login")
     @ResponseBody
     public ApiResponse loginByName(LoginReq loginReq) {
         if (StringUtils.isNotEmpty(checkLoginParams(loginReq))) {
