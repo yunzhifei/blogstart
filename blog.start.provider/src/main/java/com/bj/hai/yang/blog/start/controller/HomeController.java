@@ -4,18 +4,12 @@ import com.bj.hai.yang.blog.start.model.UserAccountModel;
 import com.bj.hai.yang.blog.start.service.IUserAccountService;
 import com.bj.hai.yang.blog.start.vo.common.ApiResponse;
 import com.bj.hai.yang.blog.start.vo.common.login.LoginReq;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Controller
 public class HomeController {
