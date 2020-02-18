@@ -11,7 +11,6 @@
         <result column="holiday_name" property="holidayName"/>
         <result column="status" property="status"/>
         <result column="created" property="created"/>
-
         <result column="modified" property="modified"/>
     </resultMap>
 
