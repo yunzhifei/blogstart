@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/blog.start.iml" filepath="$PROJECT_DIR$/blog.start.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog.start.common/blog.start.common.iml" filepath="$PROJECT_DIR$/blog.start.common/blog.start.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog.start.dao/blog.start.dao.iml" filepath="$PROJECT_DIR$/blog.start.dao/blog.start.dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog.start.domain/blog.start.domain.iml" filepath="$PROJECT_DIR$/blog.start.domain/blog.start.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog.start.provider/blog.start.provider.iml" filepath="$PROJECT_DIR$/blog.start.provider/blog.start.provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog.start.service/blog.start.service.iml" filepath="$PROJECT_DIR$/blog.start.service/blog.start.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog.start.task/blog.start.task.iml" filepath="$PROJECT_DIR$/blog.start.task/blog.start.task.iml" />
+    </modules>
+  </component>
+</project>

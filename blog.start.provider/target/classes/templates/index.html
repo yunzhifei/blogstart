@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<link th:href="@{css/index.css}" href="../static/css/index.css" type="text/css" rel="stylesheet">
+<body id="body">
+
+<div id="app-login">
+    <span th:bgcolor="aqua">欢迎登陆云志飞的博客</span><br/><br/>
+    <form @sbumit.prevent="submit">
+        <input id="app-login-name" v-model="user.name" name="name" required type="text"
+               placeholder="请输入您的账户名"/><br/><br/>
+        <input id="app-login-pwd" v-model="user.pwd" required name="pwd" type="password" placeholder="请输入密码"/><br/><br/>
+        <input id="app-login-submit" value="登录" type="submit"/><br/><br/>
+    </form>
+</div>
+</body>
+<script type="text/javascript" rel="script">
+    new Vue({
+
+        el: '#app-login',
+        data: {
+            user: {
+                name: '',
+                pwd: ''
+            }
+        },
+        methods: {
+            submit: function () {
+                var formData = JSON.stringify(this.user); // 这里才是你的表单数据
+                console.log(formData);
+            }
+        }
+
+    })
+</script>
+</html>

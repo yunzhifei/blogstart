@@ -1,0 +1,35 @@
+#app-login {
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    left: 40%;
+    top: 40%;
+    position: absolute;
+}
+
+#app-login-name {
+    height: 30%;
+    width: 200px;
+}
+
+#login-form {
+    height: 40%;
+}
+
+#app-login-pwd {
+    height: 30%;
+    width: 200px;
+}
+
+#app-login-submit {
+    height: 40%;
+    width: 200px;
+    background-color: aqua;
+}
+
+#body {
+    background-image: url("../image/loginbackground.jpg");
+    opacity: 0.8;
+    width: 1440px;
+    height: 900px;
+}

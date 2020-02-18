@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bj.hai.yang.blog.start.dao.user.IUserAccountDao">
+
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.bj.hai.yang.blog.start.dto.UserAccountDO">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="pwd" jdbcType="VARCHAR" property="pwd"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="modified" jdbcType="TIMESTAMP" property="modified"/>
+    </resultMap>
+    <sql id="select">
+        select
+        id,
+        name,
+        pwd,
+        salt,
+        status,
+        created,
+        modified
+        from user_account
+    </sql>
+
+    <sql id="insertColumn">
+        <trim prefix="" suffixOverrides=",">
+            id,
+            <if test="name != null">
+                name,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+            <if test="salt != null">
+                salt,
+            </if>
+            <if test="created != null">
+                created,
+            </if>
+            <if test="modified != null">
+                modified,
+            </if>
+            <if test="status != null">
+                status
+            </if>
+        </trim>
+    </sql>
+    <sql id="insertValue">
+        <trim prefix="" suffixOverrides=",">
+            #{id},
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="pwd != null">
+                #{pwd},
+            </if>
+            <if test="salt != null">
+                #{salt},
+            </if>
+            <if test="created != null">
+                #{created},
+            </if>
+            <if test="modified != null">
+                #{modified},
+            </if>
+            <if test="status != null">
+                #{status}
+            </if>
+        </trim>
+    </sql>
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into user_account
+        (
+        <include refid="insertColumn"/>
+        ) values (
+        <include refid="insertValue"/>
+        )
+
+    </insert>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="AllColumnMap">
+        <include refid="select"/>
+        where id=#{id} and status=0
+    </select>
+
+
+    <select id="selectByName" parameterType="java.lang.String" resultMap="AllColumnMap">
+        <include refid="select"/>
+        where name=#{name} and status=0
+    </select>
+
+</mapper>

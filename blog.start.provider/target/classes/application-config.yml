@@ -1,0 +1,11 @@
+dataSource:
+  url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
+  password: a19940129
+  userName: root
+
+dataSource1:
+  url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+  password: a19940129
+  userName: root
+
+

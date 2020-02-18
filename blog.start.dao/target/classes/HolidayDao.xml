@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bj.hai.yang.blog.start.dao.test.HolidayDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.bj.hai.yang.blog.start.dto.Holiday">
+        <result column="id" property="id"/>
+        <result column="year" property="year"/>
+        <result column="month" property="month"/>
+        <result column="day" property="day"/>
+        <result column="holiday_name" property="holidayName"/>
+        <result column="status" property="status"/>
+        <result column="created" property="created"/>
+        <result column="modified" property="modified"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        year,
+        month,
+        day,
+        holiday_name,
+        status,
+        created,
+        modified
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO holiday
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.year != null"> year, </if>
+            <if test="pojo.month != null"> month, </if>
+            <if test="pojo.day != null"> day, </if>
+            <if test="pojo.holidayName != null"> holiday_name, </if>
+            <if test="pojo.status != null"> status, </if>
+            <if test="pojo.created != null"> created, </if>
+            <if test="pojo.modified != null"> modified, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.year != null"> #{pojo.year}, </if>
+            <if test="pojo.month != null"> #{pojo.month}, </if>
+            <if test="pojo.day != null"> #{pojo.day}, </if>
+            <if test="pojo.holidayName != null"> #{pojo.holidayName}, </if>
+            <if test="pojo.status != null"> #{pojo.status}, </if>
+            <if test="pojo.created != null"> #{pojo.created}, </if>
+            <if test="pojo.modified != null"> #{pojo.modified}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO holiday(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.year},
+            #{pojo.month},
+            #{pojo.day},
+            #{pojo.holidayName},
+            #{pojo.status},
+            #{pojo.created},
+            #{pojo.modified}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE holiday
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.year != null"> year = #{pojo.year}, </if>
+            <if test="pojo.month != null"> month = #{pojo.month}, </if>
+            <if test="pojo.day != null"> day = #{pojo.day}, </if>
+            <if test="pojo.holidayName != null"> holiday_name = #{pojo.holidayName}, </if>
+            <if test="pojo.status != null"> status = #{pojo.status}, </if>
+            <if test="pojo.created != null"> created = #{pojo.created}, </if>
+            <if test="pojo.modified != null"> modified = #{pojo.modified} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM holiday
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.year != null"> AND year = #{pojo.year} </if>
+            <if test="pojo.month != null"> AND month = #{pojo.month} </if>
+            <if test="pojo.day != null"> AND day = #{pojo.day} </if>
+            <if test="pojo.holidayName != null"> AND holiday_name = #{pojo.holidayName} </if>
+            <if test="pojo.status != null"> AND status = #{pojo.status} </if>
+            <if test="pojo.created != null"> AND created = #{pojo.created} </if>
+            <if test="pojo.modified != null"> AND modified = #{pojo.modified} </if>
+        </where>
+        LIMIT 1000 
+    </select>
+
+
+
+    <!--auto generated Code-->
+    <select id="selectByMonth" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM holiday
+        <where>
+            <if test="month != 0">  month = #{month} </if>
+        </where>
+        LIMIT 1000
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM holiday where id = #{pojo.id}
+    </delete>
+</mapper>
